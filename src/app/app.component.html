@@ -128,6 +128,100 @@
     <div class="bg-primary-subtle card mb-4">
       <h1 class="card-title text-bg-info">Les directives</h1>
       <div class="card-title bg-info p-1 text m-2 rounded">
+        COMPONENTS
+        <div class="card m-2 bg-info-subtle p-1">
+          <h3 class="card-subtitle mb-2 text-danger">Créer un composant</h3>
+          <h4 class="card-subtitle text-primary fw-lighter">Ajoute un composant au projet Angular en cours</h4>
+          <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1"><span
+            class="fw-bolder text-primary"> ng generate component</span> "nom-composant"</span>
+          </p>
+          <p class="m-1">La commande doit être lancée dans le terminal à la racine du projet.<br/>
+          > Elle génère un nouveau composant dans <span
+              class="fw-bolder text-primary">src/app/nom-composant</span><br/>
+          > Le composant est constitué des fichiers suivants :</p>
+          <ol>
+            <li><span
+            class="fw-bolder text-primary fst-italic">nom-composant.component.ts</span> : Fichier composant </li>
+            <li><span
+              class="fw-bolder text-primary fst-italic">nom-composant.component.html</span> : Template du composant</li>
+            <li><span
+              class="fw-bolder text-primary fst-italic">nom-composant.component.css</span> : Fichier css spécifique à ce composant </li>
+            <li><span
+              class="fw-bolder text-primary fst-italic">nom-composant.component.spec.ts</span> : Fichier de specification pour les tests </li>
+          </ol>
+        </div>
+        <div class="card m-2 bg-info-subtle p-1">
+          <h3 class="card-subtitle mb-2 text-danger">Structure du composant</h3>
+          <h4 class="card-subtitle text-primary fw-lighter">Définit le selecteur css du composant et le template html lié</h4>
+          <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1"><span
+            class="fw-bolder text-primary">@Component</span></span>
+          </p>
+          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript nomComposant.component.ts</span>
+<span class="text-danger">@Component({{'{'}}
+  selector: 'app-nom-composant',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})</span>
+          </pre>
+          <p class="m-1">L'annotation <span
+            class="fw-bolder text-primary">@Component</span> permet de déclarer les trois éléments suivants :</p>
+            <p class="m-1"><span class="bg-danger-subtle rounded p-1">le selecteur css  <span
+              class="fw-bolder text-primary">selector : 'app-nom-composant'</span></span></p><p class="m-1">Permet à Angular d'identifier les balises propres au composant et de créer une instance de ce composant par l'intermédiaire de sa classe.</p>
+            <p class="m-1"><span class="bg-danger-subtle rounded p-1">Le template html <span
+              class="fw-bolder text-primary">templateUrl: './monComposant.component.html'</span></span></p><p class="m-1">Définit l'url de la page html qui sera utilisée comme template. Le template est un morceau de code Html qui pourra être inséré dans dans d'autres composants, ou bien comme c'est le cas pour le composant de base créé lors de l'initialisation d'un projet Angular, directement sur la page index.html.
+            Cette insertion se fait grâce au selecteur css sous la forme :</p><p class="fw-bolder text-primary mx-auto bg-danger-subtle rounded p-1">&lt;app-nom-composant>&lt;/app-nom-composant></p>
+          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier html (index.html ou nom.component.html)</span>
+<!doctype html>
+&lt;html lang="en">
+&lt;head>
+  &lt;meta charset="utf-8">
+  &lt;title>DemoAngular&lt;/title>
+  &lt;base href="/">
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1">
+  &lt;link rel="icon" type="image/x-icon" href="favicon.ico">
+&lt;/head>
+&lt;body>
+  <span class="text-danger">&lt;app-nom-composant>&lt;/app-nom-composant></span>
+&lt;/body>
+&lt;/html>
+          </pre>
+          <p class="m-1"><span class="bg-danger-subtle rounded p-1">le fichier css lié  <span
+            class="fw-bolder text-primary">styleUrls : ['./nomComposant.component.css'</span></span>
+          </p>
+          <p class="m-1">
+            Permet de lier un fichier css spécifique pour le template de ce composant.
+          </p>
+
+        </div>
+        <div class="card m-2 bg-info-subtle p-1">
+          <h3 class="card-subtitle mb-2 text-danger">Instanciation du composant</h3>
+          <h4 class="card-subtitle text-primary fw-lighter">Le composant est instancié par l'intermédiaire de sa classe (TypeScript)</h4>
+
+          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript nomComposant.component.ts</span>
+export class PiedDePageComponent {{'{'}}
+            attributDInstance : string ='';
+            attributDInstance : number = 0;
+
+            constructor() {{'{'}}
+
+            }
+
+            methodeDInstance() {{'{'}}
+            //do something
+            }
+}
+          </pre>
+          <p class="m-1">La classe du composant est écrite en <span
+            class="fw-bolder text-primary">TypeScript</span>.</p>
+          <p class="m-1">Elle peut contenir des attributs, un constructeur, des méthodes. Le cycle de vie des composants est géré par Angular, il n'est pas nécessaire de créer, détruire, modifier manuellement les instances des classes de nos composants.</p>
+          <p class="m-1">Les méthodes sont accessibles via des évènements sur les templates. Les attributs peuvent être lus et affichés sur le template, et écrits par l'intermédiaire de formulaires.</p>
+        </div>
+      </div>
+
+      <div class="card-title bg-info p-1 text m-2 rounded">
         STRUCTURAL DIRECTIVES
         <div class="card m-2 bg-info-subtle p-1">
           <h3 class="card-subtitle mb-2 text-danger">ngIf</h3>
