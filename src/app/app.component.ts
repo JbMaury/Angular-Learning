@@ -32,10 +32,15 @@ export class AppComponent {
     this.isTrue = !this.isTrue;
   }
   changeDay() :void {
-    if(this.jour ==='vendredi') {
-      this.jour = 'lundi';
+    let randNum = Math.floor(Math.random()*11);
+    if(randNum !== 10) {
+      if (this.jour === 'vendredi') {
+        this.jour = 'lundi';
+      } else {
+        this.jour = 'vendredi';
+      }
     }else {
-      this.jour = 'vendredi';
+      this.jour = '???';
     }
   }
 }
