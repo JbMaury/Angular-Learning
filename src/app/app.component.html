@@ -15,7 +15,7 @@
           class="fw-bolder text-primary">title</span>}}</span>&lt;/p&gt; </p>
         <pre class="text-success fw-bolder bg-dark-subtle rounded">
   export class monComposant {{'{'}}
-          title :string = 'demo-angular';
+          <span class="text-danger">title :string = 'demo-angular';</span>
           {{'}'}}
           </pre>
         <p class="m-1">Rendu : Le titre de mon application est : <span
@@ -32,7 +32,7 @@
         <pre class="text-success fw-bolder bg-dark-subtle rounded">
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
-          valeurInput : string = 'une valeur venant du composant';
+          <span class="text-danger">valeurInput : string = 'une valeur venant du composant';</span>
           {{'}'}}
           </pre>
         <div class="m-1 col-12">
@@ -61,14 +61,14 @@
   export class monComposant {{'{'}}
             title :string = 'demo-angular';
             valeurInput : string = 'une valeur venant du composant';
-            info :string = '';
+            <span class="text-danger">info :string = '';
             onclickButton() :void {{'{'}}
               if(this.info == ''){{'{'}}
                 this.info = 'Une information très intéressante';
               }else {{'{'}}
                 this.info = '';
               }
-            }
+            }</span>
           {{'}'}}
           </pre>
         <p class="m-1">Rendu :</p>
@@ -102,12 +102,12 @@
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
             valeurInput : string = 'une valeur venant du composant';
-            zoneSaisie : string ='Saisissez votre nom';
+            <span class="text-danger">zoneSaisie : string ='Saisissez votre nom';</span>
             onclickButton() :void {{'{'}}
-          if(this.info == ''){{'{'}}
-          this.info = 'Une information très intéressante';
+              if(this.info == ''){{'{'}}
+                this.info = 'Une information très intéressante';
               }else {{'{'}}
-          this.info = '';
+                this.info = '';
             }
           {{'}'}}
           </pre>
@@ -145,10 +145,10 @@
           <pre class="text-success fw-bolder bg-dark-subtle rounded">
   export class monComposant {{'{'}}
             title :string = 'demo-angular';
-            isTrue : boolean = false;
+            <span class="text-danger">isTrue : boolean = false;
             toggleView() : void {{'{'}}
               this.isTrue = !this.isTrue;
-            }
+            }</span>
           {{'}'}}
           </pre>
           <p class="m-1">Rendu :
@@ -176,17 +176,17 @@
           </p>
           <pre class="text-success fw-bolder bg-dark-subtle rounded">
   export class monComposant {{'{'}}
-            title :string = 'demo-angular';
-            isTrue : boolean = false;
-            informations: string[] = [
-              'Vive les pommes de terre',
-              'J\'adore  les patates'
-            ];
-            toggleView() : void {{'{'}}
-              this.isTrue = !this.isTrue;
-            }
+        title :string = 'demo-angular';
+        isTrue : boolean = false;
+        <span class="text-danger">informations: string[] = [
+          'L\'état qui engendre la règle est différent de celui que la règle engendre.',
+          'Qui ne croit en lui-même, ment toujours.'
+        ];</span>
+        toggleView() : void {{'{'}}
+          this.isTrue = !this.isTrue;
+        }
 
-          {{'}'}}
+      {{'}'}}
           </pre>
           <div class="m-1">Rendu :
             <ul>
@@ -221,30 +221,30 @@
           </p>
           <pre class="text-success fw-bolder bg-dark-subtle rounded">
  export class monComposant {{'{'}}
-            title :string = 'demo-angular';
-            isTrue : boolean = false;
-            informations: string[] = [
-              'Vive les pommes de terre',
-              'J\'adore  les patates'
-            ];
-            jour: string = 'vendredi';
-            changeDay() :void {{'{'}}
-                let randNum = Math.floor(Math.random()*11);
-                if(randNum !== 10) {{'{'}}
-                  if (this.jour === 'vendredi') {{'{'}}
-                        this.jour = 'lundi';
-                  } else {{'{'}}
-                        this.jour = 'vendredi';
-                  }
-                }else {{'{'}}
-                  this.jour = '???';
-                }
+        title :string = 'demo-angular';
+        isTrue : boolean = false;
+        informations: string[] = [
+          'L\'état qui engendre la règle est différent de celui que la règle engendre.',
+          'Qui ne croit en lui-même, ment toujours.'
+        ];
+        <span class="text-danger">jour: string = 'vendredi';
+        changeDay() :void {{'{'}}
+            let randNum = Math.floor(Math.random()*11);
+            if(randNum !== 10) {{'{'}}
+              if (this.jour === 'vendredi') {{'{'}}
+                    this.jour = 'lundi';
+              } else {{'{'}}
+                    this.jour = 'vendredi';
+              }
+            }else {{'{'}}
+              this.jour = '???';
             }
-            toggleView() : void {{'{'}}
-              this.isTrue = !this.isTrue;
-            }
+        }</span>
+        toggleView() : void {{'{'}}
+          this.isTrue = !this.isTrue;
+        }
 
-        {{'}'}}
+    {{'}'}}
           </pre>
           <p class="m-1">Rendu :</p>
           <div [ngSwitch]="jour">
@@ -259,13 +259,52 @@
       <div class="card-title bg-info p-1 text m-2 rounded">
         ATTRIBUTE DIRECTIVES
         <div class="card m-2 bg-info-subtle p-1">
-          <h3 class="card-subtitle mb-2 text-muted">ngIf</h3>
-          <h4 class="card-subtitle text-info">Ajoute ou retire conditionnellement un élément au DOM</h4>
-          <div  [ngClass]="classesAAppliquer" *ngIf="informations && informations.length>0">
-            <ul>
-              <li *ngFor="let info of informations">{{info}}</li>
-            </ul>
-          </div>
+          <h3 class="card-subtitle mb-2 text-danger">ngModel (Two-ways-Binding)</h3>
+          <h4 class="card-subtitle text-primary fw-lighter">Permet de faire des two-ways-binding entre composant et template</h4>
+          <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1">([<span
+            class="fw-bolder text-primary">ngModel</span>]) = "<span
+            class="fw-bolder text-primary">variable</span>"</span> et <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
+            class="fw-bolder text-primary">variable</span>}}</span> pour l'affichage
+          </p>
+          <p class="m-1">
+            Exemple : &lt;input type="text" <span class="bg-danger-subtle rounded p-1">{{'[('}}<span
+            class="fw-bolder text-primary">ngModel</span>)]="<span
+            class="fw-bolder text-primary">variableDynamique</span>"/></span>
+           <br/> &lt;p&gt; J'ai <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
+            class="fw-bolder text-primary">variableDynamique</span>}}</span> d'expérience dans mon métier. &lt;/p&gt;
+          </p>
+          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+  export class monComposant {{'{'}}
+          title :string = 'demo-angular';
+          isTrue : boolean = false;
+          informations: string[] = [
+            'L\'état qui engendre la règle est différent de celui que la règle engendre.',
+            'Qui ne croit en lui-même, ment toujours.'
+          ];
+          jour: string = 'vendredi';
+          <span class="text-danger">variableDynamique: number = 0;</span>
+          changeDay() :void {{'{'}}
+            let randNum = Math.floor(Math.random()*11);
+            if(randNum !== 10) {{'{'}}
+              if (this.jour === 'vendredi') {{'{'}}
+                this.jour = 'lundi';
+              }else {{'{'}}
+                this.jour = 'vendredi';
+              }
+            }else {{'{'}}
+              this.jour = '???';
+            }
+          }
+          toggleView() : void {{'{'}}
+              this.isTrue = !this.isTrue;
+          }
+
+        {{'}'}}
+          </pre>
+          <p class="m-1">
+            Rendu : J'ai {{variableDynamique}} an{{variableDynamique>1 ? 's' : ''}} d'expérience dans mon métier.
+          </p>
+          <input type="text" class="form-control" [(ngModel)]="variableDynamique"/>
         </div>
       </div>
     </div>
