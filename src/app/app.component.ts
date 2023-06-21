@@ -11,15 +11,24 @@ export class AppComponent {
   info :string = '';
   zoneSaisie: any = "Saisissez votre nom";
   isTrue: boolean = false;
+  isModified : boolean = false;
   informations: string[] = [
     'L\'état qui engendre la règle est différent de celui que la règle engendre.',
     'Qui ne croit en lui-même, ment toujours.'
   ];
   jour : string ='vendredi';
   variableDynamique : number = 0;
-  classesAAppliquer = {
-    'red' : this.informations.length <= 2,
-    'green': this.informations.length > 2
+  classesAUtiliser :any = {};
+  changerClasses() {
+    this.classesAUtiliser =
+    {
+      normal : !this.isModified,
+      modified: this.isModified
+    }
+  }
+  toggleModification() : void {
+    this.isModified = !this.isModified;
+    this.changerClasses();
   }
   onclickButton() :void {
     if(this.info == ''){

@@ -14,6 +14,7 @@
           class="bg-danger-subtle rounded p-1"> {{'{{'}}<span
           class="fw-bolder text-primary">title</span>}}</span>&lt;/p&gt; </p>
         <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           <span class="text-danger">title :string = 'demo-angular';</span>
           {{'}'}}
@@ -30,6 +31,7 @@
         <p class="m-1">Exemple : &lt;input type="text" <span class="bg-danger-subtle rounded p-1">[<span
           class="fw-bolder text-primary">value</span>]="<span class="fw-bolder text-primary">valeurInput</span>"</span>/>
         <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
           <span class="text-danger">valeurInput : string = 'une valeur venant du composant';</span>
@@ -58,6 +60,7 @@
           class="fw-bolder text-primary">onclickButton()</span>"</span>>Afficher infos&lt;/button&gt;
         </p>
         <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
             title :string = 'demo-angular';
             valeurInput : string = 'une valeur venant du composant';
@@ -99,6 +102,7 @@
           class="fw-bolder text-primary">zoneSaisie</span>}}</span> &lt;/p&gt;
         </p>
         <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
             valeurInput : string = 'une valeur venant du composant';
@@ -143,6 +147,7 @@
             <span class="text-bg-warning rounded">Affichable conditionnel avec ternaire (le nom du bouton change en fonction de la valeur de isTrue)</span>
           </p>
           <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
             title :string = 'demo-angular';
             <span class="text-danger">isTrue : boolean = false;
@@ -175,6 +180,7 @@
             &lt;/ul>
           </p>
           <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
         title :string = 'demo-angular';
         isTrue : boolean = false;
@@ -220,6 +226,7 @@
             &lt;/div>
           </p>
           <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
  export class monComposant {{'{'}}
         title :string = 'demo-angular';
         isTrue : boolean = false;
@@ -274,6 +281,7 @@
             class="fw-bolder text-primary">variableDynamique</span>}}</span> d'expérience dans mon métier. &lt;/p&gt;
           </p>
           <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
           isTrue : boolean = false;
@@ -305,6 +313,85 @@
             Rendu : J'ai {{variableDynamique}} an{{variableDynamique>1 ? 's' : ''}} d'expérience dans mon métier.
           </p>
           <input type="text" class="form-control" [(ngModel)]="variableDynamique"/>
+        </div>
+        <div class="card m-2 bg-info-subtle p-1">
+          <h3 class="card-subtitle mb-2 text-danger">ngClass</h3>
+          <h4 class="card-subtitle text-primary fw-lighter">Changement dynamique de la classe d'un élément HTML en fonction de la valeur d'une variable définie dans le composant</h4>
+          <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1">[<span
+            class="fw-bolder text-primary">ngClass</span>] = "<span
+            class="fw-bolder text-primary">classesAUtiliser</span>"</span>
+          </p>
+          <p class="m-1">
+            Exemple :<br/> &lt;span <span class="bg-danger-subtle rounded p-1">[<span
+            class="fw-bolder text-primary">ngClass</span>]="<span
+            class="fw-bolder text-primary">classeAUtiliser</span>"/></span>
+            Contenu changeant de classe
+            &lt;/span&gt;
+          </p>
+          <pre class="text-light bg-secondary rounded text-success fw-bolder">
+<span class="text-warning">Fichier app.component.css</span>
+.normal{{'{'}}}
+  font-weight: normal;
+  color: black;
+}
+
+.modified {{'{'}}
+  font-family: Impact, Arial, serif;
+  font-weight: bolder;
+  text-shadow: black 1px 1px;
+  color: lightgoldenrodyellow;
+  font-size: 1.5em;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0 10px;
+  background: linear-gradient(90deg, cadetblue, lightsteelblue);
+}
+          </pre>
+          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
+  export class monComposant {{'{'}}
+          title :string = 'demo-angular';
+          isTrue : boolean = false;
+          informations: string[] = [
+            'L\'état qui engendre la règle est différent de celui que la règle engendre.',
+            'Qui ne croit en lui-même, ment toujours.'
+          ];
+          jour: string = 'vendredi';
+          variableDynamique: number = 0;
+          <span class="text-danger">classesAUtiliser :any = {{'{'}}};</span>
+          changeDay() :void {{'{'}}
+            let randNum = Math.floor(Math.random()*11);
+            if(randNum !== 10) {{'{'}}
+              if (this.jour === 'vendredi') {{'{'}}
+                this.jour = 'lundi';
+              }else {{'{'}}
+                this.jour = 'vendredi';
+              }
+            }else {{'{'}}
+              this.jour = '???';
+            }
+          }
+          <span class="text-danger">changerClasses() {{'{'}}
+            this.classesAUtiliser = {{'{'}}
+              normal : !this.isModified,
+              modified: this.isModified
+            }
+          }
+          toggleModification() : void {{'{'}}}
+            this.isModified = !this.isModified;
+            this.changerClasses();
+          }</span>
+          toggleView() : void {{'{'}}
+            this.isTrue = !this.isTrue;
+          }
+
+        {{'}'}}
+          </pre>
+          <p class="m-1">
+            Rendu :
+            <span [ngClass]="classesAUtiliser">Contenu changeant de classe</span>
+            <button (click)="toggleModification()" class="btn btn-primary">Modifier le texte</button>
+          </p>
         </div>
       </div>
     </div>

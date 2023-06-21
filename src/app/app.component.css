@@ -1,7 +1,16 @@
-.green{
-  color: green;
+.normal{
+  font-weight: normal;
+  color: black;
 }
 
-.red {
-  color: red;
+.modified {
+  font-family: Impact, Arial, serif;
+  font-weight: bolder;
+  text-shadow: black 1px 1px;
+  color: lightgoldenrodyellow;
+  font-size: 1.5em;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0 10px;
+  background: linear-gradient(90deg, cadetblue, lightsteelblue);
 }
