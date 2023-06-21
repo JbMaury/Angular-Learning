@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title :string = 'demo-angular';
+  title :string = 'Angular Beginner Learning';
   valeurInput : string = 'une valeur venant du composant';
   info :string = '';
   zoneSaisie: any = "Saisissez votre nom";
