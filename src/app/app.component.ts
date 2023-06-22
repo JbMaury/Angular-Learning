@@ -19,6 +19,19 @@ export class AppComponent {
   jour : string ='vendredi';
   variableDynamique : number = 0;
   classesAUtiliser :any = {};
+  dateJour : Date = new Date();
+  monAnniversaire : Date = new Date('1984-03-01');
+  identite : string = 'joachim maury'
+  caseState : string = 'lower';
+  toggleCase() {
+    switch(this.caseState){
+      case 'lower' : this.caseState = 'upper';
+      break;
+      case 'upper' : this.caseState = 'title';
+      break;
+      case 'title' : this.caseState = 'lower';
+    }
+  }
   changerClasses() {
     this.classesAUtiliser =
     {
