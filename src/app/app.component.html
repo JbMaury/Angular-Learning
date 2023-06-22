@@ -490,5 +490,69 @@ export class PiedDePageComponent {{'{'}}
         </div>
       </div>
     </div>
+  <div class="bg-primary-subtle card mt-4">
+    <h1 class="card-title text-bg-info">Les pipes</h1>
+    <div class="card-title bg-info p-1 text m-2 rounded">
+      Built-in pipes
+      <div class="card m-2 bg-info-subtle p-1">
+        <h3 class="card-subtitle mb-2 text-danger">date</h3>
+        <h4 class="card-subtitle text-primary fw-lighter">Formate une date suivant un schéma donné</h4>
+        <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
+          class="fw-bolder text-primary"> variableDate</span> <span class="fw-bolder text-danger"> | date </span>}}</span>
+
+        </p>
+        <p class="m-1">
+          La variable à formater peut être de type <span
+          class="fw-bolder text-primary">string</span> / <span
+          class="fw-bolder text-primary">number</span> / <span
+          class="fw-bolder text-primary">date</span><br/>
+          Par défaut, sans indication supplémentaire, le formatage se fait suivant la localisation de l'application.
+          <br/>
+          Lors de sa construction, un projet Angular est localisé en en-US (English in the USA). Le formatage date donnera comme
+          résultat pour la date du jour : <span class="bg-danger-subtle rounded p-1">{{dateJour | date }}</span>
+        </p>
+        <p class="m-1">
+          <span class="bg-danger-subtle rounded p-1 me-1 mb-2 d-inline-block">{{'{{'}}<span
+          class="fw-bolder text-primary"> variableDate</span> <span class="fw-bolder text-danger"> | date : 'dd/MM/yyyy' </span>}}</span>
+          <span class="bg-danger-subtle rounded p-1 mb-2 d-inline-block">{{'{{'}}<span
+            class="fw-bolder text-primary"> variableDate</span> <span class="fw-bolder text-danger"> | date : 'HH:mm' </span>}}</span><br/>
+          <span class="bg-danger-subtle rounded p-1 me-1 d-inline-block">{{'{{'}}<span
+            class="fw-bolder text-primary"> variableDate</span> <span class="fw-bolder text-danger"> | date : 'full' </span>}}</span>
+          <span class="bg-danger-subtle rounded p-1 d-inline-block">{{'{{'}}<span
+            class="fw-bolder text-primary"> variableDate</span> <span class="fw-bolder text-danger"> | date : 'short' </span>}}</span>
+        </p>
+        <p class="m-1">
+          Des paramètres supplémentaires peuvent être ajoutées au <span
+          class="fw-bolder text-primary">pipe date</span> pour préciser le format souhaité. Il est possible d'écrire ce format caractère par caractère, ou bien d'utiliser les raccourcis pré-conçus d'Angular : <br/><span
+          class="fw-bolder text-primary">short[Date/Time]</span> / <span
+          class="fw-bolder text-primary">medium[Date/Time]</span> / <span
+          class="fw-bolder text-primary">long[Date/Time]</span> / <span
+          class="fw-bolder text-primary">full[Date/Time]</span> .<br/> La liste complète se trouve sur <a class="link-underline-danger  fw-bolder" href="https://angular.io/api/common/DatePipe">Angular.io</a>.
+        </p>
+        <p class="m-1">
+          Exemple :<br/>(1) &lt;p&gt; <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
+          class="fw-bolder text-primary"> monAnniversaire</span> <span class="fw-bolder text-danger"> | date</span> }}</span> &lt;/p&gt;<br/>
+          (2) &lt;p&gt; <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
+          class="fw-bolder text-primary"> monAnniversaire</span> <span class="fw-bolder text-danger"> | date : 'fullDate'</span> }}</span> &lt;/p&gt;<br/>
+          (3) &lt;p&gt; <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
+          class="fw-bolder text-primary"> monAnniversaire</span> <span class="fw-bolder text-danger"> | date : 'dd/MM/yyyy HH:mm' </span> }}</span> &lt;/p&gt;
+        </p>
+        <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
+  export class monComposant {{'{'}}
+          title :string = 'demo-angular';
+          <span class="text-danger">dateJour : Date = new Date();
+          monAnniversaire : Date = new Date('1984-03-01');</span>
+        {{'}'}}
+          </pre>
+        <p class="m-1">Rendu : (1) <span
+          class="fw-bolder text-primary">{{monAnniversaire | date }}</span> (2) <span
+          class="fw-bolder text-primary">{{monAnniversaire | date : 'fullDate' }}</span>
+          (2) <span
+            class="fw-bolder text-primary">{{monAnniversaire | date : 'dd/MM/yyyy HH:mm' }}</span></p>
+
+      </div>
+    </div>
+  </div>
     <app-pied-de-page [nomApp]="title"></app-pied-de-page>
 </div>

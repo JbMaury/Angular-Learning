@@ -19,6 +19,8 @@ export class AppComponent {
   jour : string ='vendredi';
   variableDynamique : number = 0;
   classesAUtiliser :any = {};
+  dateJour : Date = new Date();
+  monAnniversaire : Date = new Date('1984-03-01');
   changerClasses() {
     this.classesAUtiliser =
     {
