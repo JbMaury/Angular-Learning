@@ -552,6 +552,52 @@ export class PiedDePageComponent {{'{'}}
             class="fw-bolder text-primary">{{monAnniversaire | date : 'dd/MM/yyyy HH:mm' }}</span></p>
 
       </div>
+      <div class="card m-2 bg-info-subtle p-1">
+        <h3 class="card-subtitle mb-2 text-danger">uppercase/lowercase/titlecase</h3>
+        <h4 class="card-subtitle text-primary fw-lighter">Formate une chaîne de caractères en majuscule/minuscule</h4>
+        <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
+          class="fw-bolder text-primary"> variable</span> <span class="fw-bolder text-danger"> | uppercase/lowercase </span>}}</span>
+
+        </p>
+        <p class="m-1">
+          La variable à formater doit être de type <span
+          class="fw-bolder text-primary">string</span> <br/>
+        </p>
+        <p class="m-1">
+          Exemple :&lt;p&gt; <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
+          class="fw-bolder text-primary"> identite</span> <span class="fw-bolder text-danger"> | uppercase/lowercase/titlecase</span> }}</span> &lt;/p&gt;<br/>
+        </p>
+        <pre class="text-success fw-bolder bg-dark-subtle rounded">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
+  export class monComposant {{'{'}}
+          title :string = 'demo-angular';
+          dateJour : Date = new Date();
+          monAnniversaire : Date = new Date('1984-03-01');
+          {{'}'}}
+          <span class="text-danger">identite : string = "joachim maury";
+          caseState : string = 'lower';
+          toggleCase() {{'{'}}
+            switch(this.caseState){{'{'}}
+              case 'lower' : this.caseState = 'upper';
+              break;
+              case 'upper' : this.caseState = 'title';
+              break;
+              case 'title' : this.caseState = 'lower';
+            }
+          }</span>
+          </pre>
+        <p class="m-1" [ngSwitch]="caseState" >Rendu : <span *ngSwitchCase="'upper'"><span
+          class="fw-bolder text-primary">{{identite | uppercase}} </span>(uppercase)</span>
+          <span *ngSwitchCase="'lower'"><span
+            class="fw-bolder text-primary">{{identite | lowercase}} </span>(lowercase)</span>
+          <span *ngSwitchCase="'title'"><span
+            class="fw-bolder text-primary">{{identite | titlecase}} </span>(titlecase)</span>
+          <button class="btn btn-primary" (click)="toggleCase()">Switch</button>
+        </p>
+        <p>Le switch est réalisé avec un bouton ayant l'évènement <span
+          class="fw-bolder text-primary">(click)="toggleCase()</span> et  une directive <span
+          class="fw-bolder text-primary">ngSwitch</span> sur le paragraphe.</p>
+      </div>
     </div>
   </div>
     <app-pied-de-page [nomApp]="title"></app-pied-de-page>
