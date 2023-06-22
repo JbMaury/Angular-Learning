@@ -13,7 +13,7 @@
         <p class="m-1">Exemple : &lt;p&gt; Le titre de mon application est : <span
           class="bg-danger-subtle rounded p-1"> {{'{{'}}<span
           class="fw-bolder text-primary">title</span>}}</span>&lt;/p&gt; </p>
-        <pre class="text-success fw-bolder bg-dark-subtle rounded">
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           <span class="text-danger">title :string = 'demo-angular';</span>
@@ -30,10 +30,10 @@
           class="fw-bolder text-primary">variable</span>"</span>
         <p class="m-1">Exemple : &lt;input type="text" <span class="bg-danger-subtle rounded p-1">[<span
           class="fw-bolder text-primary">value</span>]="<span class="fw-bolder text-primary">valeurInput</span>"</span>/>
-        <pre class="text-success fw-bolder bg-dark-subtle rounded">
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
-          title :string = 'demo-angular';
+          title :string = 'Angular Beginner Learning';
           <span class="text-danger">valeurInput : string = 'une valeur venant du composant';</span>
           {{'}'}}
           </pre>
@@ -59,7 +59,7 @@
           class="fw-bolder text-primary">click</span>)="<span
           class="fw-bolder text-primary">onclickButton()</span>"</span>>Afficher infos&lt;/button&gt;
         </p>
-        <pre class="text-success fw-bolder bg-dark-subtle rounded">
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
             title :string = 'demo-angular';
@@ -101,7 +101,7 @@
           &lt;p&gt; <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
           class="fw-bolder text-primary">zoneSaisie</span>}}</span> &lt;/p&gt;
         </p>
-        <pre class="text-success fw-bolder bg-dark-subtle rounded">
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
@@ -156,7 +156,7 @@
           <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1"><span
             class="fw-bolder text-primary">@Component</span></span>
           </p>
-          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+          <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript nomComposant.component.ts</span>
 <span class="text-danger">@Component({{'{'}}
   selector: 'app-nom-composant',
@@ -171,7 +171,7 @@
             <p class="m-1"><span class="bg-danger-subtle rounded p-1">Le template html <span
               class="fw-bolder text-primary">templateUrl: './monComposant.component.html'</span></span></p><p class="m-1">Définit l'url de la page html qui sera utilisée comme template. Le template est un morceau de code Html qui pourra être inséré dans dans d'autres composants, ou bien comme c'est le cas pour le composant de base créé lors de l'initialisation d'un projet Angular, directement sur la page index.html.
             Cette insertion se fait grâce au selecteur css sous la forme :</p><p class="fw-bolder text-primary mx-auto bg-danger-subtle rounded p-1">&lt;app-nom-composant>&lt;/app-nom-composant></p>
-          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+          <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier html (index.html ou nom.component.html)</span>
 <!doctype html>
 &lt;html lang="en">
@@ -199,7 +199,7 @@
           <h3 class="card-subtitle mb-2 text-danger">Instanciation du composant</h3>
           <h4 class="card-subtitle text-primary fw-lighter">Le composant est instancié par l'intermédiaire de sa classe (TypeScript)</h4>
 
-          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+          <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript nomComposant.component.ts</span>
 export class PiedDePageComponent {{'{'}}
             attributDInstance : string ='';
@@ -240,7 +240,7 @@ export class PiedDePageComponent {{'{'}}
             class="fw-bolder text-primary">toggleView()</span>"</span>><span class="text-bg-warning rounded">{{'{{'}}isTrue ? 'Cacher' : 'Afficher'}}</span>&lt;/button><br/>
             <span class="text-bg-warning rounded">Affichable conditionnel avec ternaire (le nom du bouton change en fonction de la valeur de isTrue)</span>
           </p>
-          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+          <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
             title :string = 'demo-angular';
@@ -273,7 +273,7 @@ export class PiedDePageComponent {{'{'}}
             &lt;/li&gt;<br/>
             &lt;/ul>
           </p>
-          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+          <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
         title :string = 'demo-angular';
@@ -319,7 +319,7 @@ export class PiedDePageComponent {{'{'}}
             class="fw-bolder text-primary">*ngSwitchDefault</span>>Demain est un autre jour !&lt;/h1><br/>
             &lt;/div>
           </p>
-          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+          <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
  export class monComposant {{'{'}}
         title :string = 'demo-angular';
@@ -374,7 +374,7 @@ export class PiedDePageComponent {{'{'}}
            <br/> &lt;p&gt; J'ai <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
             class="fw-bolder text-primary">variableDynamique</span>}}</span> d'expérience dans mon métier. &lt;/p&gt;
           </p>
-          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+          <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
@@ -422,7 +422,7 @@ export class PiedDePageComponent {{'{'}}
             Contenu changeant de classe
             &lt;/span&gt;
           </p>
-          <pre class="text-light bg-secondary rounded text-success fw-bolder">
+          <pre class="text-light bg-secondary rounded text-success fw-bolder m-1 p-1">
 <span class="text-warning">Fichier app.component.css</span>
 .normal{{'{'}}}
   font-weight: normal;
@@ -441,7 +441,7 @@ export class PiedDePageComponent {{'{'}}
   background: linear-gradient(90deg, cadetblue, lightsteelblue);
 }
           </pre>
-          <pre class="text-success fw-bolder bg-dark-subtle rounded">
+          <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
@@ -537,7 +537,7 @@ export class PiedDePageComponent {{'{'}}
           (3) &lt;p&gt; <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
           class="fw-bolder text-primary"> monAnniversaire</span> <span class="fw-bolder text-danger"> | date : 'dd/MM/yyyy HH:mm' </span> }}</span> &lt;/p&gt;
         </p>
-        <pre class="text-success fw-bolder bg-dark-subtle rounded">
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
@@ -567,7 +567,7 @@ export class PiedDePageComponent {{'{'}}
           Exemple :&lt;p&gt; <span class="bg-danger-subtle rounded p-1">{{'{{'}}<span
           class="fw-bolder text-primary"> identite</span> <span class="fw-bolder text-danger"> | uppercase/lowercase/titlecase</span> }}</span> &lt;/p&gt;<br/>
         </p>
-        <pre class="text-success fw-bolder bg-dark-subtle rounded">
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
 <span class="text-secondary">Fichier TypeScript app.component.ts</span>
   export class monComposant {{'{'}}
           title :string = 'demo-angular';
@@ -597,6 +597,48 @@ export class PiedDePageComponent {{'{'}}
         <p>Le switch est réalisé avec un bouton ayant l'évènement <span
           class="fw-bolder text-primary">(click)="toggleCase()</span> et  une directive <span
           class="fw-bolder text-primary">ngSwitch</span> sur le paragraphe.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bg-primary-subtle card mt-4">
+    <h1 class="card-title text-bg-info">Les services (Dependency injection)</h1>
+    <div class="card-title bg-info p-1 text m-2 rounded">
+      Les services regroupent les logiques métiers (Traitement back-end de l'authentification, Récupération de données, connexion à une API, etc ...)
+      <div class="card m-2 bg-info-subtle p-1">
+        <h3 class="card-subtitle mb-2 text-danger">Création et référencement d'un service</h3>
+        <h4 class="card-subtitle text-primary fw-lighter">Definir quel(s) composant(s) et/ou service(s) auront accès au service.</h4>
+        <p class="m-1">
+          De manière général, les services n'ont pas besoin d'être créés dans un répertoire spécifique de votre application.
+          Pour optimiser l'organisation, il est recommandé de créer un dossier src/app/<span
+          class="fw-bolder text-primary">services</span> ou src/app/<span
+          class="fw-bolder text-primary">providers</span>.
+        </p>
+        <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1"><span
+          class="fw-bolder text-primary"> ng generate service</span> NomService</span><br/>
+          Cette commande génère deux fichiers : La classe du service <span
+            class="fw-bolder text-primary">nom-service.service.ts</span> et un fichier de test <span
+            class="fw-bolder text-primary">nom-service.service.spec.ts</span> .
+        </p>
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript nom-service.service.ts</span>
+import {{'{'}} Injectable } from '@angular/core';
+
+<span class="text-danger">@Injectable({{'{'}}
+    providedIn: 'root'
+})</span>
+export class NomService {{'{'}}
+
+        constructor() {{'{'}} }
+}
+          </pre>
+        <p class="m-1">
+          L'annotation @Injectable permet d'injecter ce service dans d'autres composants et services. La propriété <span
+          class="fw-bolder text-primary">providedIn: 'root'</span> n'est pas obligatoire.<br/>
+          Elle indique qu'une instance unique de ce service sera accessible à la racine de l'application par n'importe quel composant.
+          Il existe d'autres façons de référencer un composant :<br/>
+          <span class="text-decoration-underline">Par module</span> :<br/>
+          Dans le fichier app.module.ts il est possible de déclarer le ou les services
+        </p>
       </div>
     </div>
   </div>
