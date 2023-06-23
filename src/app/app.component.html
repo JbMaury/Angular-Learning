@@ -637,8 +637,62 @@ export class NomService {{'{'}}
           Elle indique qu'une instance unique de ce service sera accessible à la racine de l'application par n'importe quel composant.
           Il existe d'autres façons de référencer un composant :<br/>
           <span class="text-decoration-underline">Par module</span> :<br/>
-          Dans le fichier app.module.ts il est possible de déclarer le ou les services
+          Dans le fichier app.module.ts il est possible de déclarer le ou les services qui seront disponibles pour l'ensemble du module :
         </p>
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript app.module.ts</span>
+import {{'{'}} NgModule } from '@angular/core';
+import {{'{'}} BrowserModule } from '@angular/platform-browser';
+
+import {{'{'}} AppComponent } from './app.component';
+import {{'{'}} FormsModule} from "@angular/forms";
+import {{'{'}} EnTeteComponent } from './en-tete/en-tete.component';
+import {{'{'}} PiedDePageComponent } from './pied-de-page/pied-de-page.component';
+
+@NgModule({{'{'}}
+          declarations: [
+            AppComponent,
+            EnTeteComponent,
+            PiedDePageComponent
+          ],
+          imports: [
+            BrowserModule,
+            FormsModule
+          ],
+          providers: [<span class="text-danger">NomService</span>],
+          bootstrap: [AppComponent]
+})
+export class AppModule {{'{'}} }
+          </pre>
+        <p class="m-1">Ce fichier est le module racine d'une application angular.
+        <br/><span class="bg-danger-subtle rounded p-1"><span
+            class="fw-bolder text-primary">declarations : []</span></span> permet de définir les composants qui y seront utilisés. <br/>
+          <span class="bg-danger-subtle rounded p-1"><span
+            class="fw-bolder text-primary">imports : []</span></span>liste les modules supplémentaires à importer pour rajouter des fonctionnalités à l'application. <br/>
+          <span class="bg-danger-subtle rounded p-1"><span
+            class="fw-bolder text-primary">bootstrap : []</span></span> définit le point d'entrée de l'application qui sera instancié au démarrage et rendu dans le fichier index.html à la racine du projet.  <br/>
+        <span class="bg-danger-subtle rounded p-1"><span
+            class="fw-bolder text-primary">providers : []</span></span>) permet de référencer un ou des services pour l'ensemble des composants du module. Comme la déclaration <span class="bg-danger-subtle rounded p-1"><span
+            class="fw-bolder text-primary">providedIn: 'root'</span></span>, une seule instance de chaque service est disponible pour tous les composants qui y feront appel.
+        </p>
+        <p>
+          <span class="text-decoration-underline">Par composant</span> :<br/>
+          Il est possible de déclarer un service directement sur un composant. Lui seul pourra y accéder, et une instance de ce service sera créée pour chaque instance du composant.
+        </p>
+        <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript mon-composant.component.ts</span>
+import {{'{'}} Component} from '@angular/core';
+
+@Component({{'{'}}
+          selector: 'mon-composant',
+          templateUrl: './mon-composant.component.html',
+          styleUrls: ['./mon-composant.component.css'],
+          providers : [<span class="text-danger">NomService</span>]
+})
+export class PiedDePageComponent {{'{'}}
+
+}
+          </pre>
       </div>
     </div>
   </div>
