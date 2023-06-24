@@ -1,0 +1,11 @@
+.navbar {
+  transition: background-color 0.3s ease;
+}
+
+.navbar.fixed-top {
+  background-color: #f8f9fa; /* Couleur de fond du menu fixe */
+}
+
+.navbar .nav-item .active {
+  color: #007bff; /* Couleur de l'élément de menu actif */
+}

@@ -5,16 +5,18 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { EnTeteComponent } from './en-tete/en-tete.component';
 import { PiedDePageComponent } from './pied-de-page/pied-de-page.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnTeteComponent,
-    PiedDePageComponent
+    PiedDePageComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

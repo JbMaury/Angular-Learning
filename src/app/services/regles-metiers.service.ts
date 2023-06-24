@@ -5,7 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ReglesMetiersService {
 
-  constructor() {
-  }
+  constructor() { }
 
+  public isEven(nombre : number) : boolean {
+    return nombre ? nombre%2 == 0 : false;
+  }
 }
