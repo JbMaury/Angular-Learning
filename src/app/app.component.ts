@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ReglesMetiersService} from "./services/regles-metiers.service";
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,15 @@ export class AppComponent {
   monAnniversaire : Date = new Date('1984-03-01');
   identite : string = 'joachim maury'
   caseState : string = 'lower';
+  nombres : number[] = [1, 3, 4, 8, 11, 15, 16, 23];
+
+  constructor(private reglesMetiersServices : ReglesMetiersService){
+
+  }
+  getClasses(nombre : number) {
+    const isEven = this.reglesMetiersServices.isEven(nombre);
+    return {'vert' : isEven, 'rouge' : !isEven };
+  }
   toggleCase() {
     switch(this.caseState){
       case 'lower' : this.caseState = 'upper';
