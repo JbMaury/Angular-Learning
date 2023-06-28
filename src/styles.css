@@ -1,3 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 @import "bootstrap/dist/css/bootstrap.css";
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'highlight.js/styles/base16/railscasts.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bulles {
+  background-color: #323844;
+  color: #fab451;
+  font-weight: normal;
+  margin: 5px;
+}
+.tagWhite {
+  color: #fff;
+}
+.variable {
+  color: #f16c63;
+}
+.attribute {
+  color: #4e8de8;
+}
+.value {
+  color: #78ce78;
+}
+.bg-section {
+  background-color: #e9ebef;
+}
+.keywords {
+  color : #b473e8;
+}
+.syntax {
+  color: #fab451;
+}
+.highlight {
+  color: #7d41b7;
+
+  font-weight: bolder;
+  font-style: italic;
+}
+.comments {
+  color: #aeb4bd;
+}
+.components {
+  color: #0dcaf0;
+}
+

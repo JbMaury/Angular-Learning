@@ -1,0 +1,175 @@
+<mat-card>
+  <mat-card-title class="mat-headline-4 m-1">Liaison unidirectionnelle</mat-card-title>
+      <mat-card>
+        <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5" id="interpolation">Interpolation</span>
+      <h4 class="text-dark fw-lighter">Affiche sur le template la valeur d'une variable du
+        composant</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1"> {{'{{'}}<span
+        class="variable">variable</span>}}</span>
+      </p>
+      <p class="ms-1 ">Exemple :</p>
+      <div class="container col-12 row justify-content-between align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript app.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+      <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project';</span>
+{{'}'}}
+          </pre>
+        </div>
+        <div class="col-auto">
+          <p class="mb-2 ms-2">Fichier app.component.html</p>
+          <p><span class="bulles rounded p-1"><span class="tagWhite">&lt;</span><span
+            class="variable">p</span><span class="tagWhite">&gt;Le titre de mon application est : </span> {{'{{'}}<span
+            class="variable"> title</span> }} <span class="tagWhite">&lt;/</span><span class="variable">p</span><span class="tagWhite">&gt;</span></span></p>
+        </div>
+        <div class="col-auto">
+          Rendu :
+          <p> Le titre de mon application est : <span
+            class="bg-light text-primary fw-bold rounded p-1">{{title}}</span></p>
+        </div>
+      </div>
+
+        </mat-card-content>
+      </mat-card>
+  <mat-card>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5" id="propertyBind">Property Binding</span>
+      <h4 class="text-dark fw-lighter">Lit la valeur d'une variable du composant et l'ajoute en tant
+        que valeur de propriété sur un élément HTML</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1"> [ <span class="syntax">propriete</span> ] = "<span
+        class="variable">variable</span>"</span>
+      <p class="ms-1 ">Exemple :</p>
+      <div class="container col-12 row justify-content-around align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+    <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project';</span>
+    <span class="variable">valeurInput</span> : <span class="keywords">string</span> = <span class="value">'une valeur venant du composant';</span>
+{{'}'}}
+          </pre>
+        </div>
+        <div class="col-auto">
+          <p class="mb-2 ms-2">Fichier app.component.html</p>
+          <p>
+          <span class="bulles rounded p-1">
+            <span class="tagWhite">&lt;</span><span
+            class="variable">input</span> <span class="syntax"> type</span><span class="value">="text" </span> <span class="syntax">[value]</span><span class="value">="<span class="variable">valeurInput</span>"</span><span class="syntax"> disabled</span><span class="tagWhite">/></span></span>
+          </p>
+        </div>
+        <div class="w-100 m-1">
+
+            <label class="form-text" for="inputValeur"> Rendu (input disabled):</label>
+            <input id="inputValeur"  type="text" class="form-control text-center" [value]="valeurInput" disabled/>
+
+        </div>
+      </div>
+      <p class="m-1">La valeur de <span class="highlight">input</span> est
+      automatiquement remplie avec la valeur de l'attribut "<span class="highlight">valeurInput</span>"
+      du composant.
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5" id="eventBind">Event Binding</span>
+      <h4 class="text-dark fw-lighter">Envoie des données au composant depuis un évènement sur le
+        template</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1"> <span class="syntax">{{'('}}evenement)</span><span class="value"> = "</span><span
+        class="attribute">methode</span><span class="syntax">()</span><span class="value">"</span></span>
+      </p>
+      <p class="m-1">Exemple :</p>
+      <div class="container col-12 row justify-content-around align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+    <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project';</span>
+    <span class="variable">valeurInput</span> : <span class="keywords">string</span> = <span class="value">'une valeur venant du composant';</span>
+    <span class="variable">info</span> :<span class="keywords">string</span> = <span class="value">''</span>;
+    <span class="attribute">onclickButton</span>() : <span class="keywords">void</span> {{'{'}}
+      <span class="keywords">if</span>(<span class="keywords">this</span>.<span class="variable">info</span> == <span class="value">''</span>) {{'{'}}
+        <span class="keywords">this</span>.<span class="variable">info</span> = <span class="value">'Une information très intéressante'</span>;
+      }<span class="keywords">else</span> {{'{'}}
+        <span class="keywords">this</span>.<span class="variable">info</span> = <span class="value">''</span>;
+    }
+}
+          </pre>
+        </div>
+        <div class="col-auto">
+         <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier app.component.html</span>
+ <span class="tagWhite">&lt;</span><span class="variable">button</span> <span class="syntax">(click)</span><span class="value">="</span><span class="attribute">onclickButton</span><span class="syntax">()</span><span class="value">"</span>> Afficher infos &lt;/<span class="variable">button</span>>
+ <span class="tagWhite">&lt;</span><span class="variable">p</span><span class="tagWhite">&gt;</span><span class="syntax">{{'{{'}}</span><span class="variable">info</span><span class="syntax">}}</span>&lt;/<span class="variable">p</span>>
+         </pre>
+        </div>
+        <div class="col-auto w-100">
+          <p class="m-1">Rendu :</p>
+          <button (click)="onclickButton()" class="btn btn-primary">Afficher infos</button>
+          <p *ngIf="info!=''" class="bg-light text-primary fw-bold rounded p-1">{{info}}</p>
+        </div>
+      </div>
+
+
+    </mat-card-content>
+  </mat-card>
+</mat-card>
+<mat-card>
+  <mat-card-title class="mat-headline-4 m-1">Liaison bidirectionnelle</mat-card-title>
+      <mat-card>
+        <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5" id="twowaysBind">Two-ways-binding</span>
+      <h4 class="text-dark fw-lighter">Affiche et modifie dynamiquement la valeur de la variable du
+        composant</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1"> {{'[('}}ngModel)]<span class="value"> = "<span
+        class="variable">variable</span>"</span></span>
+        pour l'input, et <span class="bulles rounded p-1">{{'{{'}}<span
+          class="variable">variable</span>}}</span> pour l'affichage
+      </p>
+          <p class="m-1">Exemple :</p>
+          <div class="container col-12 row justify-content-around align-items-center bg-dark-subtle rounded-4">
+            <div class="col-auto">
+              <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+    <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project';</span>
+    <span class="variable">valeurInput</span> : <span class="keywords">string</span> = <span class="value">'une valeur venant du composant';</span>
+    <span class="variable">info</span> :<span class="keywords">string</span> = <span class="value">''</span>;
+    <span class="variable">zoneSaisie</span> : <span class="keywords">string</span> =<span class="value">'Saisissez votre nom'</span>;
+    <span class="attribute">onclickButton</span>() : <span class="keywords">void</span> {{'{'}}
+        <span class="keywords">if</span>(<span class="keywords">this</span>.<span class="variable">info</span> == <span class="value">''</span>) {{'{'}}
+          <span class="keywords">this</span>.<span class="variable">info</span> = <span class="value">'Une information très intéressante'</span>;
+        }<span class="keywords">else</span> {{'{'}}
+          <span class="keywords">this</span>.<span class="variable">info</span> = <span class="value">''</span>;
+    }
+}
+            </pre>
+            </div>
+            <div class="col-auto">
+              <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier  app.component.html</span>
+
+<span class="tagWhite">&lt;</span><span class="variable">input</span> <span class="syntax">type</span><span class="value">="text"</span> <span class="syntax">{{'[('}}ngModel)]</span><span class="value">="<span
+                class="variable">zoneSaisie</span>"</span><span class="tagWhite">/></span>
+<span class="tagWhite">&lt;<span class="variable">p</span>&gt;</span> <span class="syntax">{{'{{'}}<span
+              class="variable">zoneSaisie</span>}}</span> <span class="tagWhite">&lt;/<span class="variable">p</span>&gt;</span>
+              </pre>
+            </div>
+            <div class="col-auto">
+              <p class="m-1">
+                Rendu :
+              </p>
+              <input type="text" class="form-control" [(ngModel)]="zoneSaisie"/>
+              <p class="m-2">
+                Valeur de <span class="bulles rounded p-1 variable">zoneSaisie</span> : <span class="bg-light text-primary fw-bold rounded p-1">{{zoneSaisie}}</span>
+              </p>
+            </div>
+          </div>
+
+
+
+        </mat-card-content>
+      </mat-card>
+</mat-card>

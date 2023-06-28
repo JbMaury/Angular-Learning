@@ -1,0 +1,9 @@
+<div>
+  <p>Zone d'affichage</p>
+  <p *ngIf="!getDataSaisies() || getDataSaisies().length == 0">
+    Pas de saisie pour le moment.
+  </p>
+  <ul *ngIf="getDataSaisies() && getDataSaisies().length != 0">
+    <li *ngFor="let data of getDataSaisies()">{{data}}</li>
+  </ul>
+</div>

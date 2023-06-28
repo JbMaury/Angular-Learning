@@ -1,0 +1,159 @@
+<mat-card>
+  <mat-card-title class="mat-headline-4 m-1">Les pipes</mat-card-title>
+      <mat-card>
+        <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5" id="datePipe">Date</span>
+      <h4 class="text-dark fw-lighter">Formate une date suivant un schéma donné</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1">{{'{{'}}<span
+        class="variable"> variableDate</span> | <span class="attribute"> date </span>}}</span>
+
+      </p>
+      <p class="m-1">
+        La variable à formater peut être de type <span
+        class="highlight">string</span> / <span
+        class="highlight">number</span> / <span
+        class="highlight">date</span><br/>
+        Par défaut, sans indication supplémentaire, le formatage se fait suivant la localisation de l'application.
+        <br/>
+        Lors de sa construction, un projet Angular est localisé en en-US (English in the USA). Le formatage date donnera comme
+        résultat pour la date du jour : <span class="bg-light text-primary fw-bold rounded p-1">{{dateJour | date }}</span>
+      </p>
+      <p class="m-1">
+          <span class="bulles rounded p-1">{{'{{'}}<span
+            class="variable"> variableDate</span> | <span class="attribute"> date</span> : <span class="value">'dd/MM/yyyy'</span> }}</span>
+        <span class="bulles rounded p-1">{{'{{'}}<span
+          class="variable"> variableDate</span> | <span class="attribute"> date</span> : <span class="value">'HH:mm'</span> }}</span>
+        <span class="bulles rounded p-1">{{'{{'}}<span
+          class="variable"> variableDate</span> | <span class="attribute"> date</span> : <span class="value">'full'</span> }}</span>
+        <span class="bulles rounded p-1">{{'{{'}}<span
+          class="variable"> variableDate</span> | <span class="attribute"> date</span> : <span class="value">'short'</span> }}</span>
+      </p>
+      <p class="m-1">
+        Des paramètres supplémentaires peuvent être ajoutées au <span
+        class="highlight">pipe date</span> pour préciser le format souhaité. Il est possible d'écrire ce format caractère par caractère, ou bien d'utiliser les raccourcis pré-conçus d'Angular : <br/><span
+        class="highlight">short[Date/Time]</span> / <span
+        class="highlight">medium[Date/Time]</span> / <span
+        class="highlight">long[Date/Time]</span> / <span
+        class="highlight">full[Date/Time]</span> .<br/> La liste complète se trouve sur <a class="fw-bolder" href="https://angular.io/api/common/DatePipe">Angular.io</a>.
+      </p>
+
+        <p class="ms-1 ">Exemple :</p>
+        <div class="container col-12 row justify-content-between align-items-center bg-dark-subtle rounded-4">
+
+          <div class="col-auto">
+            <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+  <span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+        <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project';</span>
+        <span class="variable">dateJour</span> : <span class="syntax">Date</span> = <span class="keywords">new</span> <span class="variable">Date</span>();
+        <span class="variable">monAnniversaire</span> : <span class="syntax">Date</span> = <span class="keywords">new</span> <span class="variable">Date</span>(<span class="value">'1984-03-01'</span>);
+  {{'}'}}
+          </pre>
+          </div>
+          <div class="col-auto">
+            <p class="mb-2 ms-4">Fichier app.component.html</p>
+            <p>(1)<span class="bulles rounded p-1"><span class="tagWhite">&lt;</span><span
+              class="variable">p</span><span class="tagWhite">&gt;</span> {{'{{'}}<span
+              class="variable"> monAnniversaire</span>  | <span class="attribute">date</span> }} <span class="tagWhite">&lt;/</span><span class="variable">p</span><span class="tagWhite">&gt;</span></span></p>
+            <p>(2)<span class="bulles rounded p-1"><span class="tagWhite">&lt;</span><span
+              class="variable">p</span><span class="tagWhite">&gt;</span> {{'{{'}}<span
+              class="variable"> monAnniversaire</span>  | <span class="attribute">date</span> : <span class="value">'fullDate'</span> }} <span class="tagWhite">&lt;/</span><span class="variable">p</span><span class="tagWhite">&gt;</span></span></p>
+            <p>(3)<span class="bulles rounded p-1"><span class="tagWhite">&lt;</span><span
+              class="variable">p</span><span class="tagWhite">&gt;</span> {{'{{'}}<span
+              class="variable"> monAnniversaire</span>  | <span class="attribute">date</span> : <span class="value">'dd/MM/yyyy HH:mm'</span> }} <span class="tagWhite">&lt;/</span><span class="variable">p</span><span class="tagWhite">&gt;</span></span></p>
+          </div>
+          <div class="col-auto">
+            <p class="m-2">
+              Rendu (1) : <span
+              class="bg-light text-primary fw-bold rounded p-1">{{monAnniversaire | date }}</span>
+            </p>
+            <p class="m-2">
+              Rendu (2) : <span
+              class="bg-light text-primary fw-bold rounded p-1">{{monAnniversaire | date : 'fullDate' }}</span>
+            </p>
+            <p class="m-2">
+              Rendu (3) : <span
+              class="bg-light text-primary fw-bold rounded p-1">{{monAnniversaire | date : 'dd/MM/yyyy HH:mm' }}</span>
+            </p>
+          </div>
+        </div>
+
+
+          </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content class="bg-section">
+
+      <span class="text-dark mat-headline-5" id="casePipe">UPPERCASE/lowercase/TitleCase</span>
+      <h4 class="text-dark fw-lighter">Formate une chaîne de caractères en majuscule/minuscule</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1">{{'{{'}}<span
+        class="variable"> variable</span> <span class="attribute"> | uppercase/lowercase/titlecase </span>}}</span>
+
+      </p>
+      <p class="m-1">
+        La variable à formater doit être de type <span
+        class="highlight">string</span> <br/>
+      </p>
+      <p class="m-1">
+        Exemple :
+      </p>
+      <div class="container col-12 row justify-content-evenly align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+  <span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+        <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project';</span>
+        <span class="variable">dateJour</span> : <span class="syntax">Date</span> = <span class="keywords">new</span> <span class="variable">Date</span>();
+        <span class="variable">monAnniversaire</span> : <span class="syntax">Date</span> = <span class="keywords">new</span> <span class="variable">Date</span>(<span class="value">'1984-03-01'</span>);
+        <span class="variable">identite</span> : <span class="keywords">string</span> = <span class="value">'joachim maury';</span>
+        <span class="variable">caseState</span> : <span class="keywords">string</span> = <span class="value">'{{caseState}}';</span>
+
+
+        <span class="attribute">toggleCase</span>() : <span class="keywords">void</span> {{'{'}}
+          <span class="keywords">switch</span>(<span class="keywords">this</span>.<span class="variable">caseState</span>){{'{'}}
+            <span class="keywords">case</span> <span class="value">'lower'</span> : <span class="keywords">this</span>.<span class="variable">caseState</span> = <span class="value">'upper'</span>;
+            <span class="keywords">break</span>;
+            <span class="keywords">case</span> <span class="value">'upper'</span> : <span class="keywords">this</span>.<span class="variable">caseState</span> = <span class="value">'title'</span>;
+            <span class="keywords">break</span>;
+            <span class="keywords">case</span> <span class="value">'title'</span> : <span class="keywords">this</span>.<span class="variable">caseState</span> = <span class="value">'lower'</span>;
+          }
+        }
+  }
+          </pre>
+        </div>
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier app.component.html</span>
+<span class="tagWhite">&lt;</span><span
+  class="variable">p</span> <span class="syntax">[ngSwitch]</span><span class="value">="caseState"</span> <span class="tagWhite">&gt;</span>
+ <span class="bulles rounded p-1"><span class="tagWhite">&lt;</span><span
+   class="variable">span</span><span class="tagWhite">&gt;</span> {{'{{'}}<span
+   class="variable"> identite</span>  | <span class="attribute">uppercase</span> }} <span class="tagWhite">&lt;/</span><span class="variable">span</span><span class="tagWhite">&gt;</span></span>
+ <span class="bulles rounded p-1"><span class="tagWhite">&lt;</span><span
+  class="variable">span</span><span class="tagWhite">&gt;</span> {{'{{'}}<span
+  class="variable"> identite</span>  | <span class="attribute">lowercase</span> }} <span class="tagWhite">&lt;/</span><span class="variable">span</span><span class="tagWhite">&gt;</span></span>
+ <span class="bulles rounded p-1"><span class="tagWhite">&lt;</span><span
+  class="variable">span</span><span class="tagWhite">&gt;</span> {{'{{'}}<span
+  class="variable"> identite</span>  | <span class="attribute">titlecase</span> }} <span class="tagWhite">&lt;/</span><span class="variable">span</span><span class="tagWhite">&gt;</span></span>
+  <span class="tagWhite">&lt;</span><span class="variable">button</span> <span class="syntax">(click)</span><span class="value">="</span><span class="attribute">toggleCase</span><span class="syntax">()</span><span class="value">"</span>> Switch &lt;/<span class="variable">button</span>
+<span class="tagWhite">&lt;/</span><span
+  class="variable">p</span><span class="tagWhite">&gt;</span>
+          </pre>
+        </div>
+        <div class="w-25">
+          Rendu :
+          <p class="" [ngSwitch]="caseState" ><span *ngSwitchCase="'upper'"><span
+            class="bg-light text-primary fw-bold rounded p-1">{{identite | uppercase}} </span></span>
+            <span *ngSwitchCase="'lower'"><span
+              class="bg-light text-primary fw-bold rounded p-1">{{identite | lowercase}} </span></span>
+            <span *ngSwitchCase="'title'"><span
+              class="bg-light text-primary fw-bold rounded p-1">{{identite | titlecase}} </span></span>
+          </p>
+          <button class="btn btn-primary" (click)="toggleCase()">Switch</button>
+        </div>
+      </div>
+
+          </mat-card-content>
+      </mat-card>
+  </mat-card>
+

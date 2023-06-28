@@ -1,0 +1,226 @@
+<div class="bg-primary-subtle card">
+  <h1 class="card-title text-bg-info">Les services (Dependency injection)</h1>
+  <div class="card-title bg-info p-1 text m-2 rounded">
+    Les services regroupent les logiques métiers (Traitement back-end de l'authentification, Récupération de données, connexion à une API, etc ...)
+    <div class="card m-2 bg-info-subtle p-1">
+      <h3 class="card-subtitle mb-2 text-danger" id="serviceCreate">Création et référencement d'un service</h3>
+      <h4 class="card-subtitle text-primary fw-lighter">Definir quel(s) composant(s) et/ou service(s) auront accès au service.</h4>
+      <p class="m-1">
+        De manière général, les services n'ont pas besoin d'être créés dans un répertoire spécifique de votre application.
+        Pour optimiser l'organisation, il est recommandé de créer un dossier src/app/<span
+        class="fw-bolder text-primary">services</span> ou src/app/<span
+        class="fw-bolder text-primary">providers</span>.
+      </p>
+      <p class="m-1">Syntaxe : <span class="bg-danger-subtle rounded p-1"><span
+        class="fw-bolder text-primary"> ng generate service</span> NomService</span><br/>
+        Cette commande génère deux fichiers : La classe du service <span
+          class="fw-bolder text-primary">nom-service.service.ts</span> et un fichier de test <span
+          class="fw-bolder text-primary">nom-service.service.spec.ts</span> .
+      </p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript nom-service.service.ts</span>
+import {{'{'}} Injectable } from '@angular/core';
+
+<span class="text-danger">@Injectable({{'{'}}
+  providedIn: 'root'
+})</span>
+export class NomService {{'{'}}
+
+        constructor() {{'{'}} }
+}
+          </pre>
+      <p class="m-1">
+        L'annotation @Injectable permet d'injecter ce service dans d'autres composants et services. La propriété <span
+        class="fw-bolder text-primary">providedIn: 'root'</span> n'est pas obligatoire.<br/>
+        Elle indique qu'une instance unique de ce service sera accessible à la racine de l'application par n'importe quel composant.
+        Il existe d'autres façons de référencer un composant :<br/>
+        <span class="text-decoration-underline">Par module</span> :<br/>
+        Dans le fichier app.module.ts il est possible de déclarer le ou les services qui seront disponibles pour l'ensemble du module :
+      </p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript app.module.ts</span>
+import {{'{'}} NgModule } from '@angular/core';
+import {{'{'}} BrowserModule } from '@angular/platform-browser';
+
+import {{'{'}} AppComponent } from './app.component';
+import {{'{'}} FormsModule} from "@angular/forms";
+import {{'{'}} EnTeteComponent } from './en-tete/en-tete.component';
+import {{'{'}} PiedDePageComponent } from './pied-de-page/pied-de-page.component';
+
+@NgModule({{'{'}}
+        declarations: [
+            AppComponent,
+            EnTeteComponent,
+            PiedDePageComponent
+          ],
+          imports: [
+            BrowserModule,
+            FormsModule
+          ],
+          providers: [<span class="text-danger">NomService</span>],
+          bootstrap: [AppComponent]
+})
+export class AppModule {{'{'}} }
+          </pre>
+      <p class="m-1">Ce fichier est le module racine d'une application angular.
+        <br/><span class="bg-danger-subtle rounded p-1"><span
+          class="fw-bolder text-primary">declarations : []</span></span> permet de définir les composants qui y seront utilisés. <br/>
+        <span class="bg-danger-subtle rounded p-1"><span
+          class="fw-bolder text-primary">imports : []</span></span>liste les modules supplémentaires à importer pour rajouter des fonctionnalités à l'application. <br/>
+        <span class="bg-danger-subtle rounded p-1"><span
+          class="fw-bolder text-primary">bootstrap : []</span></span> définit le point d'entrée de l'application qui sera instancié au démarrage et rendu dans le fichier index.html à la racine du projet.  <br/>
+        <span class="bg-danger-subtle rounded p-1"><span
+          class="fw-bolder text-primary">providers : []</span></span>) permet de référencer un ou des services pour l'ensemble des composants du module. Comme la déclaration <span class="bg-danger-subtle rounded p-1"><span
+          class="fw-bolder text-primary">providedIn: 'root'</span></span>, une seule instance de chaque service est disponible pour tous les composants qui y feront appel.
+      </p>
+      <p>
+        <span class="text-decoration-underline">Par composant</span> :<br/>
+        Il est possible de déclarer un service directement sur un composant. Lui seul pourra y accéder, et une instance de ce service sera créée pour chaque instance du composant.
+      </p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript mon-composant.component.ts</span>
+import {{'{'}} Component} from '@angular/core';
+
+@Component({{'{'}}
+        selector: 'mon-composant',
+          templateUrl: './mon-composant.component.html',
+          styleUrls: ['./mon-composant.component.css'],
+          providers : [<span class="text-danger">NomService</span>]
+})
+export class MonComposant {{'{'}}
+
+        }
+          </pre>
+    </div>
+    <div class="card m-2 bg-info-subtle p-1">
+      <h3 class="card-subtitle mb-2 text-danger" id="serviceUse">Instanciation et Utilisation d'un Service</h3>
+      <h4 class="card-subtitle text-primary fw-lighter">Les services doivent être instanciés par le constructeur des composants.</h4>
+      <p class="m-1">
+        Après avoir créé et référencé le service, il faut lui fournir des méthodes qui pourront être appelées par les composants.<br/>
+        Le service doit ensuite être injecté dans le composant à partir de son constructeur.<br/>
+        <span class="text-decoration-underline">On commence par créer une méthode dans le service </span>:
+      </p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript regles-metiers.service.ts</span>
+import {{'{'}} Injectable } from '@angular/core';
+
+@Injectable({{'{'}}
+        providedIn: 'root'
+})
+export class ReglesMetiersService {{'{'}}
+
+        constructor() {{'{'}} }
+
+  // La méthode "isEven()" prend un nombre en paramètre et renvoie true ou false suivant
+  // si le nombre est pair ou non.
+  <span class="text-danger">public isEven(nombre : number) : boolean {{'{'}}
+    return nombre ? nombre%2 == 0 : false;
+  }
+  </span>
+}
+          </pre>
+      <p class="m-1">
+
+        <span class="text-decoration-underline">On initialise une variable de type tableau d'entier dans le composant :</span><br/>
+        Cette liste de nombres permettra de visualiser le fonctionnement de notre service.
+      </p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript mon-composant.component.ts</span>
+import {{'{'}} Component} from '@angular/core';
+
+@Component({{'{'}}
+        selector: 'mon-composant',
+          templateUrl: './mon-composant.component.html',
+          styleUrls: ['./mon-composant.component.css'],
+          providers : []
+})
+export class MonComposant {{'{'}}
+        <span class="text-danger">listeNombres : number[] = [2, 3, 21, 5, 8, 16, 32, 19];</span>
+
+          }
+          </pre>
+      <p class="m-1">
+
+        <span class="text-decoration-underline">On ajoute le constructeur avec en paramètre le service de type ReglesMetiersService:</span><br/>
+      </p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript mon-composant.component.ts</span>
+import {{'{'}} Component} from '@angular/core';
+
+@Component({{'{'}}
+        selector: 'mon-composant',
+          templateUrl: './mon-composant.component.html',
+          styleUrls: ['./mon-composant.component.css'],
+          providers : []
+})
+export class MonComposant {{'{'}}
+        listeNombres : number[] = [2, 3, 21, 5, 8, 16, 32, 19];
+
+          }
+          <span class="text-danger">constructor(private reglesMetiersService : ReglesMetiersServices) {{'{'}}
+            }</span>
+          </pre>
+      <p class="m-1">
+
+        <span class="text-decoration-underline">On créé une méthode dans le composant :</span><br/>
+        Cette méthode du composant fait appel à la méthode isEven() de l'instance du service associé.
+      </p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier TypeScript mon-composant.component.ts</span>
+import {{'{'}} Component} from '@angular/core';
+
+@Component({{'{'}}
+        selector: 'mon-composant',
+          templateUrl: './mon-composant.component.html',
+          styleUrls: ['./mon-composant.component.css'],
+          providers : []
+})
+export class MonComposant {{'{'}}
+        listeNombres : number[] = [2, 3, 21, 5, 8, 16, 32, 19];
+
+          }
+          constructor(private reglesMetiersService : ReglesMetiersServices) {{'{'}}
+        }
+          <span class="text-danger">getClasses(nombre: number) {{'{'}}
+            const isEven = this.reglesMetiersServices.isEven(nombre);
+            return ('vert' : isEven, 'rouge' : !isEven);
+          }</span>
+          </pre>
+      <p class="m-1">La valeur récupérée avec <span
+        class="fw-bolder text-primary">const isEven</span> est soit <span
+        class="fw-bolder text-primary">"true"</span> soit <span
+        class="fw-bolder text-primary">"false"</span>. On renvoie ensuite un objet sous la forme <span class="bg-danger-subtle rounded p-1">{{'{'}}'vert' : boolean, 'rouge' : boolean} </span><br/>
+        Si le nombre est pair, alors vert : true, et si le nombre est impair, alors rouge : true.<br/> Cette utilisation du service permet d'avoir pour chaque nombre envoyé une liste de classe en retour, applicable avec la directive <span class="bg-danger-subtle rounded p-1">[ngClass]</span>.</p>
+      <p class="m-1">
+        Exemple sur notre fichier mon-composant.component.html :
+      </p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier html mon-composant.component.html</span>
+// On créé une boucle avec *ngFor sur le tableau "nombres"
+// On change dynamiquement la classe de l'élément de liste avec [ngClass]
+// Enfin on affiche avec l'interpolation la valeur du nombre en cours 'n'.
+// Cet affichage se fera avec la classe 'verte' (nombre pair)
+// ou la classe 'rouge' (nombre impair)
+<span class="text-danger">&lt;ul>
+  &lt;li *ngFor="let n of nombres" [ngClass]="getClasses(n)">{{'{{'}}n}}&lt;/li>
+&lt;/ul></span>
+          </pre>
+      <p class="m-1">Dans le fichier mon-composant.component.css, il ne reste plus qu'à créer et styliser les classes .rouge et .verte pour obtenir un affichage différencié</p>
+      <pre class="text-success fw-bolder bg-dark-subtle rounded m-1 p-1">
+<span class="text-secondary">Fichier css mon-composant.component.css</span>
+.vert {{'{{'}}
+        color: green;
+}
+.rouge {{'{{'}}
+        color: red;
+}
+        </pre>
+      <p class="m-1">
+        Résultat :
+      </p>
+      <ul>
+        <li *ngFor="let n of nombres" [ngClass]="getClasses(n)">{{n}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,461 @@
+
+<mat-card>
+  <mat-card-title class="mat-headline-4 m-1">Les directives</mat-card-title>
+  <mat-card>
+    <mat-card-subtitle>COMPONENTS</mat-card-subtitle>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5">Créer un composant</span>
+      <h4 class="text-dark fw-lighter">Ajoute un composant au projet Angular en cours</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1"><span
+        class="syntax">ng </span><span class="comments">generate component &lt;nom-composant></span></span>
+      </p>
+      <p class="m-1">La commande doit être lancée dans le <span class=" text-capitalize highlight">terminal</span> à la <span class="highlight">racine du projet</span>.<br/>
+         Elle génère un nouveau <span class="highlight">composant</span> dans <span
+          class="bulles rounded p-1 tagWhite">nom-projet/src/app/nom-composant</span><br/>
+         Le composant est un dossier constitué des fichiers suivants :</p>
+      <ol>
+        <li class="mb-2"><span
+          class="bulles rounded p-1 tagWhite">nom-composant.component.ts</span> : Fichier composant écrit en <span class="highlight">TypeScript</span> </li>
+        <li class="mb-2"><span
+          class="bulles rounded p-1 tagWhite">nom-composant.component.html</span> : Template du composant écrit en <span class="highlight">Html</span></li>
+        <li class="mb-2"><span
+          class="bulles rounded p-1 tagWhite">nom-composant.component.css</span> : Fichier <span class="highlight">css</span> spécifique à ce composant (vide par défaut) </li>
+        <li><span
+          class="bulles rounded p-1 tagWhite">nom-composant.component.spec.ts</span> : Fichier de specification pour les tests unitaires écrit en <span class="highlight">TypeScript</span> </li>
+      </ol>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5">Structure du composant</span>
+      <h4 class="text-dark fw-lighter">Définit le selecteur du composant, le template html lié, et le fichier de style associé.</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1"><span
+        class="syntax fst-italic">@Component </span><span class="tagWhite">({{'{'}} ... })</span></span>
+      </p>
+      <div class="m-1 row w-50 justify-content-evenly">
+      <pre class="text-light  bulles rounded m-1 p-2">
+<span class="comments">Fichier TypeScript nom-composant.component.ts</span>
+<span class="syntax fst-italic">@Component </span><span class="tagWhite">({{'{'}}</span>
+  <span class="variable">selector </span>: <span class="value">'app-nom-composant'</span>,
+  <span class="variable">templateUrl </span>: <span class="value">'./app.component.html'</span>,
+  <span class="variable">styleUrls </span>: [<span class="value">'./app.component.css'</span>]
+})
+
+          </pre>
+      </div>
+      <p class="mb-3 ms-1">L'annotation <span
+        class="bulles rounded p-1">@Component</span> permet de déclarer les trois éléments suivants :</p>
+      <p class="ms-1 mb-3">Le selecteur css  <span
+        class="bulles rounded p-1"><span class="variable">selector</span> <span class="tagWhite"> : </span> <span class="value">'app-nom-composant'</span></span> permet à Angular d'identifier <span class="highlight">la balise propre au composant</span> (<span class="bulles rounded p-1 components">&lt;app-nom-composant>&lt;/app-nom-composant></span>) sur le <span class="highlight">template html</span> et de créer une <span class="highlight">instance</span> de ce composant par l'intermédiaire de sa <span class="highlight">classe</span>.
+        C'est à partir de ces selecteurs que l'on va construire l'application depuis la page <span class="highlight">index.html</span></p>
+      <p class="ms-1 mb-3">Le template html <span
+        class="bulles rounded p-1"><span class="variable">templateUrl</span><span class="tagWhite"> : </span> <span class="value">'./monComposant.component.html'</span></span>définit l'url du fichier <span class="highlight">html</span> qui sera utilisée comme <span class="highlight">template</span>. Le <span class="highlight">template</span> est un <span class="highlight">morceau de code html</span> qui pourra être inséré dans d'autres <span class="highlight">composants</span>, ou bien comme c'est le cas pour le <span class="highlight">composant de base</span> (<span class="bulles rounded p-1 tagWhite">app.component.html / app.component.ts / app.component.css</span>) créé lors de l'initialisation d'un projet Angular, directement sur la page index.html.</p>
+      <div class="container col-12 row justify-content-between align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto col-sm-6">
+      <pre class="text-light  bulles rounded m-1 p-2">
+<span class="comments">Fichier html index.html</span>
+&lt;!doctype <span class="syntax">html</span>>
+&lt;<span class="variable">html</span> <span class="syntax">lang</span><span class="value">="en"</span>>
+  &lt;<span class="variable">head</span>>
+    &lt;<span class="variable">meta</span> <span class="syntax">charset</span><span class="value">="utf-8"</span>>
+    &lt;<span class="variable">title</span>>Angular Beginner Project&lt;/<span class="variable">title</span>>
+    &lt;<span class="variable">base</span> <span class="syntax">href</span><span class="value">="/"</span>>
+    &lt;<span class="variable">meta</span> <span class="syntax">name</span><span class="value">="viewport"</span> <span class="syntax">content</span><span class="value">="width=device-width, initial-scale=1"</span>>
+    &lt;<span class="variable">link</span> <span class="syntax">rel</span><span class="value">="icon"</span> <span class="syntax">type</span><span class="value">="image/x-icon"</span> <span class="syntax">href</span><span class="value">="favicon.ico"</span>>
+  &lt;/<span class="variable">head</span>>
+  &lt;<span class="variable">body</span>>
+    <span class="components">&lt;app-component>&lt;/app-component></span>
+  &lt;/<span class="variable">body</span>>
+&lt;/<span class="variable">html</span>>
+          </pre>
+          <p class="m-1">
+            <span class="highlight">Page racine</span>, entrée dans l'application dans laquelle se trouve uniquement le composant de base qui regroupe tous les autres composants.
+          </p>
+        </div>
+        <div class="col-auto col-sm-6">
+          <pre class="text-light  bulles rounded m-1 p-2">
+<span class="comments">Fichier html app-component.html</span>
+  <span class="components">&lt;app-header>&lt;/app-header></span>
+  <span class="components">&lt;app-main-content>&lt;/app-main-content></span>
+  <span class="components">&lt;app-side-menu>&lt;/app-side-menu></span>
+  <span class="components">&lt;app-footer>&lt;/app-footer></span>
+          </pre>
+          <p class="m-1">
+            <span class="highlight">Template html</span> du composant principal construit à partir de composants de mise en page.
+          </p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5">Instanciation du composant</span>
+      <h4 class="text-dark fw-lighter">Le composant est instancié par l'intermédiaire de sa classe (TypeScript)</h4>
+
+      <pre class="text-light  bulles rounded m-1 p-2 w-50">
+<span class="comments">Fichier TypeScript nom-composant.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+        <span class="variable">attribut1</span> : <span class="keywords">string</span> = <span class="value">'valeur';</span>
+        <span class="variable">attribut2</span> : <span class="keywords">number</span> = <span class="value">1337;</span>
+        <span class="keywords">constructor</span>() {{'{'}}
+        }
+        <span class="attribute">methode1</span>() : <span class="keywords">void</span> {{'{'}}
+          <span class="comments">// Do something here</span>
+        }
+        <span class="attribute">methode2</span>(<span class="syntax">id</span> : <span class="keywords">number</span>) : <span class="keywords">boolean</span> {{'{'}}
+        <span class="keywords">return true</span>;
+        }
+}
+          </pre>
+      <p class="m-1">La classe du composant est écrite en <span
+        class="highlight">TypeScript</span>.</p>
+      <p class="m-1">Elle peut contenir des <span class="bulles rounded p-1 variable">attributs</span>, un <span class="bulles rounded p-1 keywords">constructeur</span>, des <span class="bulles rounded p-1 attribute">méthodes</span>. Le <span class="highlight">cycle de vie</span> des composants est géré par Angular, il n'est pas nécessaire de créer, détruire, modifier manuellement les instances des classes de nos composants.</p>
+      <p class="m-1">Les méthodes sont accessibles via des <span class="highlight">évènements</span> sur les templates. Les attributs peuvent être lus et affichés sur le template, et modifiés par l'intermédiaire de formulaires.</p>
+
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mt-5">
+    <mat-card-subtitle >STRUCTURAL DIRECTIVES</mat-card-subtitle>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5">ngIf</span>
+      <h4 class="text-dark fw-lighter">Ajoute ou retire conditionnellement un élément au DOM</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1"><span
+        class="syntax"> {{'*'}}ngIf</span><span class="value"> = "<span
+        class="variable">condition</span>"</span></span>
+
+      </p>
+      <p class="m-1">Exemple :</p>
+      <div class="container col-12 row justify-content-between align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+           <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript nom-composant.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+   <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project'</span>;
+   <span class="variable">isTrue</span> : <span class="keywords">boolean</span> = <span class="keywords">false</span>;
+   <span class="attribute">toggleView</span>() : <span class="keywords">void</span> {{'{'}}
+      <span class="keywords">this</span>.<span class="variable">isTrue</span> = !<span class="keywords">this</span>.<span class="variable">isTrue</span>;
+   }
+}
+            </pre>
+        </div>
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier html nom-composant.component.html</span>
+<span class="tagWhite">&lt;<span class="variable">span <span class="syntax">*ngIf</span><span class="value">="<span class="variable">isTrue</span></span></span><span class="value">"</span></span>> Texte conditionnel &lt;\<span class="variable">span</span>>
+<<span class="variable">button</span> <span class="syntax">(click)</span><span class="value">="</span><span class="attribute">toggleView</span><span class="syntax">()</span><span class="value">"</span>><span class="syntax"> {{</span><span class="variable">isTrue</span> <span class="syntax">?</span> <span class="value">'Cacher'</span> <span class="syntax">: </span><span class="value">'Afficher'</span><span class="syntax">}}</span> &lt;/<span class="variable">button</span>>
+            </pre>
+        </div>
+        <div class="col-auto w-1/2">
+          <p class="m-1">Rendu :</p>
+          <p class="m-1">
+            <button class="btn btn-primary" (click)="toggleView()">{{isTrue ? 'Cacher' : 'Afficher'}}</button>
+            <span *ngIf="isTrue" class="bg-light text-primary fw-bold rounded p-1">
+            Texte conditionnel
+          </span>
+          </p>
+
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5">ngFor</span>
+      <h4 class="text-dark fw-lighter">Permet d'itérer sur les éléments d'un tableau dans le DOM et d'ajouter des éléments HTML pour chaque itération</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1"><span
+        class="syntax"> {{'*'}}ngFor</span> <span class="value">= "<span
+        class="keywords">let </span> <span class="variable">item </span> <span class="syntax">of </span> <span class="variable">list</span>"</span></span>
+
+      </p>
+      <p class="m-1">Exemple :</p>
+      <div class="container col-12 row justify-content-between align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+           <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+   <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project'</span>;
+   <span class="variable">isTrue</span> : <span class="keywords">boolean</span> = <span class="keywords">false</span>;
+   <span class="variable">informations</span>: <span class="keywords">string</span>[] = [
+     <span class="value">'L\'état qui engendre la règle est différent de celui que la règle engendre.'</span>,
+     <span class="value">'Qui ne croit en lui-même, ment toujours.'</span>
+   ];
+   <span class="attribute">toggleView</span>() : <span class="keywords">void</span> {{'{'}}
+     <span class="keywords">this</span>.<span class="variable">isTrue</span> = !<span class="keywords">this</span>.<span class="variable">isTrue</span>;
+   }
+}
+
+
+</pre>
+        </div>
+        <div class="col-auto">
+<pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier html app.component.html</span>
+&lt;<span class="variable">ul</span>&gt;
+  &lt;<span class="variable">li</span><span
+  class="syntax"> *ngFor</span><span class="value">="<span
+  class="keywords">let</span> <span class="variable">info</span> <span class="syntax">of</span> <span class="variable">informations</span>"</span>><span class="syntax">{{'{{'}}<span
+  class="variable">info</span>}}</span>&lt;/<span class="variable">li</span>&gt;
+&lt;/<span class="variable">ul</span>>
+</pre>
+        </div>
+        <div class="col-auto">
+          <div>Rendu :
+            <ul>
+              <li class="bg-light text-primary fw-bold rounded p-1 mb-1" *ngFor="let info of informations">{{info}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5">ngSwitch</span>
+      <h4 class="text-dark fw-lighter">Affichage conditionné à un test switch</h4>
+      <p class="m-1">
+        Syntaxe :
+      </p>
+      <p class="m-1 mb-2">
+        <span class="bulles rounded p-1"><span class="syntax">{{'[ '}}ngSwitch ]</span> = "<span
+        class="variable">variableATester</span>"</span> pour le <span class="highlight">conteneur</span>.
+      </p>
+      <p class="m-1 mb-2">
+        <span class="bulles rounded p-1"><span class="syntax">*ngSwitchCase</span> <span class="value">= " 'valeur' "</span></span>
+        pour les <span class="highlight">éléments conditionnels.</span>
+      </p>
+      <p class="m-1 mb-2">
+        <span class="bulles rounded p-1"><span class="syntax">*ngSwitchDefault</span> <span class="value">= " 'valeur' "</span></span>
+        pour les <span class="highlight">cas par défaut</span>.
+      </p>
+      <p class="m-1 mb-2">
+        Attention aux <span class="highlight">simple et double quotes</span> : si la valeur est écrite en dur il faut l'entourer de <span class="highlight">double quotes</span> ET de <span class="highlight">simple quotes</span>. Dans le cas d'une <span class="bulles rounded p-1 value">"<span class="variable">variable</span>"</span> les <span class="highlight">double quotes</span> suffisent.
+      </p>
+      <p class="m-1">Exemple :</p>
+      <div class="container col-12 row justify-content-between align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+   <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project'</span>;
+   <span class="variable">isTrue</span> : <span class="keywords">boolean</span> = <span class="keywords">false</span>;
+   <span class="variable">informations</span>: <span class="keywords">string</span>[] = [
+     <span class="value">'L\'état qui engendre la règle est différent de celui que la règle engendre.'</span>,
+     <span class="value">'Qui ne croit en lui-même, ment toujours.'</span>
+   ];
+   <span class="variable">jour</span>: <span class="keywords">string</span> = <span class="value">'vendredi'</span>;
+
+   <span class="attribute">toggleView</span>() : <span class="keywords">void</span> {{'{'}}
+     <span class="keywords">this</span>.<span class="variable">isTrue</span> = !<span class="keywords">this</span>.<span class="variable">isTrue</span>;
+   }
+   <span class="attribute">changeDay</span>() : <span class="keywords">void</span> {{'{'}}
+     <span class="keywords">let </span>randNum = <span class="variable">Math</span>.<span class="attribute">floor</span>(<span class="variable">Math</span>.<span class="attribute">random</span>()*<span class="syntax">11</span>
+     <span class="keywords">if</span>(randNum !== <span class="syntax">10</span>) {{'{'}}
+       <span class="keywords">if</span>(<span class="keywords">this</span>.<span class="variable">jour</span> === <span class="value">'vendredi'</span>) {{'{'}}
+         <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'lundi'</span>;
+       }<span class="keywords">else </span>{{'{'}}
+         <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'vendredi'</span>;
+       }
+     }<span class="keywords">else </span>{{'{'}}
+       <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'???'</span>;
+   }
+}
+</pre>
+        </div>
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier html app.component.html</span>
+&lt;<span class="variable">div</span> <span class="syntax">[ngSwitch]</span><span class="value">="<span class="variable">jour</span>"</span>&gt;
+  &lt;<span class="variable">h1</span><span
+            class="syntax"> *ngSwitchCase</span><span class="value">="'vendredi'"</span>>Super c'est la fin de la semaine !&lt;/<span class="variable">h1</span>&gt;
+  &lt;<span class="variable">h1</span><span
+            class="syntax"> *ngSwitchCase</span><span class="value">="'lundi'"</span>>Le week-end est encore tellement loin...&lt;/<span class="variable">h1</span>&gt;
+  &lt;<span class="variable">h1</span><span
+            class="syntax"> *ngSwitchDefault</span>>Demain est un autre jour!&lt;/<span class="variable">h1</span>&gt;
+            &lt;/<span class="variable">div</span>>
+</pre>
+        </div>
+        <div class="auto">
+          <p class="m-1">Rendu :</p>
+          <div [ngSwitch]="jour">
+            Jour de la semaine : {{jour}}
+            <h1 class="bg-light text-primary rounded p-1 mb-1" *ngSwitchCase="'vendredi'">Super c'est la fin de la semaine !</h1>
+            <h1 class="bg-light text-primary rounded p-1 mb-1" *ngSwitchCase="'lundi'">Le week-end est encore tellement loin...</h1>
+            <h1 class="bg-light text-primary rounded p-1 mb-1" *ngSwitchDefault>Demain est un autre jour !</h1>
+          </div>
+          <button class=" btn btn-primary mb-2" (click)="changeDay()">Voyager dans le temps</button>
+        </div>
+      </div>
+
+
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-subtitle>ATTRIBUTE DIRECTIVES</mat-card-subtitle>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5">ngModel (Two-ways-Binding)</span>
+      <h4 class="text-dark fw-lighter">Permet de faire des liens bidirectionnels entre composant et template</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1">([ ngModel ]) <span class="value">= "<span
+        class="variable">variable</span>"</span></span> et <span class="bulles rounded p-1">{{'{{'}}<span
+        class="variable">variable</span>}}</span> pour l'affichage
+      </p>
+      <p class="m-1">Exemple :</p>
+      <div class="container col-12 row justify-content-between align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+   <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project'</span>;
+   <span class="variable">isTrue</span> : <span class="keywords">boolean</span> = <span class="keywords">false</span>;
+   <span class="variable">informations</span>: <span class="keywords">string</span>[] = [
+     <span class="value">'L\'état qui engendre la règle est différent de celui que la règle engendre.'</span>,
+     <span class="value">'Qui ne croit en lui-même, ment toujours.'</span>
+   ];
+   <span class="variable">jour</span>: <span class="keywords">string</span> = <span class="value">'vendredi'</span>;
+   <span class="variable">variableDynamique</span>: <span class="keywords">number</span> = <span class="value">0</span>;
+   <span class="attribute">toggleView</span>() : <span class="keywords">void</span> {{'{'}}
+            <span class="keywords">this</span>.<span class="variable">isTrue</span> = !<span class="keywords">this</span>.<span class="variable">isTrue</span>;
+   }
+   <span class="attribute">changeDay</span>() : <span class="keywords">void</span> {{'{'}}
+            <span class="keywords">let </span>randNum = <span class="variable">Math</span>.<span class="attribute">floor</span>(<span class="variable">Math</span>.<span class="attribute">random</span>()*<span class="syntax">11</span>
+     <span class="keywords">if</span>(randNum !== <span class="syntax">10</span>) {{'{'}}
+            <span class="keywords">if</span>(<span class="keywords">this</span>.<span class="variable">jour</span> === <span class="value">'vendredi'</span>) {{'{'}}
+            <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'lundi'</span>;
+       }<span class="keywords">else </span>{{'{'}}
+            <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'vendredi'</span>;
+       }
+     }<span class="keywords">else </span>{{'{'}}
+            <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'???'</span>;
+   }
+}
+</pre>
+        </div>
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier html app.component.html</span>
+&lt;<span class="variable">input</span> <span class="syntax">type</span><span class="value">="<span class="variable">number</span>"</span> <span class="syntax">([ ngModel ]) <span class="value">= "<span
+            class="variable">variableDynamique</span>"</span></span>/&gt;
+  &lt;<span class="variable">p</span>>
+    J'ai <span class="syntax">{{<span class="variable">variableDynamique</span>}}</span> an<span class="syntax">{{<span class="variable">variableDynamique</span>>1 ?<span class="value"> 's'</span> :<span class="value"> ''</span>}}</span> d'expérience dans mon métier.
+  &lt;/<span class="variable">p</span>&gt;
+</pre>
+        </div>
+        <div class="col-auto">
+          <p class="m-1">Rendu :</p>
+          <p class="m-1 mb-2">
+            <span class="bg-light text-primary rounded p-1">J'ai {{variableDynamique}} an{{variableDynamique>1 ? 's' : ''}} d'expérience dans mon métier.</span>
+          </p>
+          <input type="number" class="form-control m-1" [(ngModel)]="variableDynamique"/>
+        </div>
+      </div>
+      <p class="m-1">La <span class="highlight">condition ternaire</span> ajoutée à l'affichage de <span class="bulles rounded p-1 variable">variableDynamique</span> permet de mettre 'an' au pluriel si sa valeur est supérieure à 1.</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content class="bg-section">
+      <span class="text-dark mat-headline-5">ngClass</span>
+      <h4 class="text-dark fw-lighter">Changement dynamique de la classe d'un élément HTML en fonction de la valeur d'une variable définie dans le composant</h4>
+      <p class="m-1">Syntaxe : <span class="bulles rounded p-1">[ngClass] <span class="value">= "<span
+        class="variable">classesAUtiliser</span>"</span></span>
+      </p>
+      <p class="m-1">Exemple :</p>
+      <div class="container col-12 row justify-content-between align-items-center bg-dark-subtle rounded-4">
+        <div class="col-auto">
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier TypeScript app.component.ts</span>
+<span class="keywords">export class</span> <span class="syntax">monComposant</span> {{'{'}}
+   <span class="variable">title</span> : <span class="keywords">string</span> = <span class="value">'Angular Beginner Project'</span>;
+   <span class="variable">isTrue</span> : <span class="keywords">boolean</span> = <span class="keywords">false</span>;
+   <span class="variable">informations</span>: <span class="keywords">string</span>[] = [
+     <span class="value">'L\'état qui engendre la règle est différent de celui que la règle engendre.'</span>,
+     <span class="value">'Qui ne croit en lui-même, ment toujours.'</span>
+   ];
+   <span class="variable">jour</span>: <span class="keywords">string</span> = <span class="value">'vendredi'</span>;
+   <span class="variable">isModified</span>: <span class="keywords">boolean</span> = <span class="keywords">false</span>;
+   <span class="variable">classesAUtiliser</span>: <span class="keywords">any</span> = {{'{'}}};
+   <span class="variable">variableDynamique</span>: <span class="keywords">number</span> = <span class="value">0</span>;
+
+   <span class="attribute">toggleView</span>() : <span class="keywords">void</span> {{'{'}}
+     <span class="keywords">this</span>.<span class="variable">isTrue</span> = !<span class="keywords">this</span>.<span class="variable">isTrue</span>;
+   }
+   <span class="attribute">changeDay</span>() : <span class="keywords">void</span> {{'{'}}
+     <span class="keywords">let </span>randNum = <span class="variable">Math</span>.<span class="attribute">floor</span>(<span class="variable">Math</span>.<span class="attribute">random</span>()*<span class="syntax">11</span>
+     <span class="keywords">if</span>(randNum !== <span class="syntax">10</span>) {{'{'}}
+       <span class="keywords">if</span>(<span class="keywords">this</span>.<span class="variable">jour</span> === <span class="value">'vendredi'</span>) {{'{'}}
+          <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'lundi'</span>;
+       }<span class="keywords">else </span>{{'{'}}
+          <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'vendredi'</span>;
+       }
+     }<span class="keywords">else </span>{{'{'}}
+       <span class="keywords">this</span>.<span class="variable">jour</span>=== <span class="value">'???'</span>;
+   }
+   <span class="attribute">changerClasses</span>() : <span class="keywords">void</span> {{'{'}}
+      <span class="keywords">this</span>.<span class="variable">classesAUtiliser</span> = {{'{'}}
+        <span class="variable">normal</span> : !<span class="keywords">this</span>.<span class="variable">isModified</span>,
+        <span class="variable">modified</span> : <span class="keywords">this</span>.<span class="variable">isModified</span>,
+      }
+   }
+   <span class="attribute">toggleModification</span>() : <span class="keywords">void</span> {{'{'}}
+      <span class="keywords">this</span>.<span class="variable">isModified</span> = !<span class="keywords">this</span>.<span class="variable">isModified</span>;
+      <span class="keywords">this</span>.<span class="attribute">changerClasse</span>();
+   }
+}
+</pre>
+        </div>
+        <div class="col-auto">
+            <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier Css app.component.css</span>
+.<span class="syntax">normal</span>{{'{'}}}
+  font-weight: <span class="syntax">normal</span>;
+  color: <span class="syntax">black</span>;
+}
+
+.<span class="syntax">modified</span> {{'{'}}
+  font-weight: <span class="syntax">bolder</span>;
+  text-shadow: <span class="syntax">white 1px 1px 4px</span>;
+  color: <span class="syntax">#20032a</span>;
+  font-size: <span class="syntax">1.5em</span>;
+  border: <span class="syntax">2px solid black</span>;
+  border-radius: <span class="syntax">10px</span>;
+  padding: <span class="syntax">0 10px</span>;
+  background: <span class="attribute">linear-gradient</span>(<span class="syntax">90deg</span>, <span class="syntax">cadetblue</span>, <span class="syntax">lightsteelblue</span>);
+}
+            </pre>
+          <pre class="text-light  bulles rounded m-1 p-1">
+<span class="comments">Fichier html app.component.html</span>
+&lt;<span class="variable">span</span> <span class="syntax">[ngClass]</span><span class="value">="<span class="variable">classesAUtiliser</span>"</span>/>
+    Contenu changeant de classe
+&lt;/<span class="variable">span</span>&gt;
+&lt;<span class="variable">button</span> <span class="syntax">(click)</span> <span class="value">="<span class="attribute">toggleModification</span><span class="syntax">()</span>"</span>> Modifier le texte &lt;/<span class="variable">button</span>>
+</pre>
+          <p class="m-1">
+            Rendu :
+          </p>
+          <p class="m-1">
+            <span [ngClass]="classesAUtiliser">Contenu changeant de classe</span>
+            <button (click)="toggleModification()" class="btn btn-primary">Modifier le texte</button>
+          </p>
+        </div>
+        <div class="col-auto">
+          <p class="m-1 mb-2">
+            Explication : La directive <span class="bulles rounded p-1 syntax">[ngClass]</span> renvoie vers <span class="bulles rounded p-1 variable">classeAUtiliser</span> qui est un <span class="highlight">objet</span> ayant pour <span class="highlight">clé</span> les noms des classes à utiliser, et en valeur un booléen.</p>
+          <p class="m-1 mb-2">
+            Il est possible d'utiliser une valeur en dur pour envoyer directement le nom d'une classe, ce qui n'a peu d'intérêt par rapport à l'utilisation classique de <span class="bulles rounded p-1"><span class="variable">class</span>="nomClasse"</span> En envoyant un objet, on peut contrôler les classes qui seront affichées ou non, en contrôlant les <span class="highlight">valeurs booléennes</span> associées aux clés.</p>
+          <p class="m-1 mb-2">
+            C'est ce que nous faisons ici en utilisant deux classes dans notre objet <span class="bulles rounded p-1 variable">classeAUtiliser</span>, si les deux clés ont pour valeur <span class="highlight">true</span> alors elles seront appliquées l'une après l'autre. Si certaines ont pour valeur <span class="highlight">false</span>, elles ne seront pas appliquées avec <span class="bulles rounded p-1 syntax">[ngClass]</span>.
+            </p>
+          <p class="m-1 mb-2">
+            Dans l'exemple : le bouton permet de faire basculer <span class="bulles rounded p-1 variable">isModified</span> entre true et false, et d'appeler la méthode <span class="bulles rounded p-1 attribute">changerClasse</span> qui va mettre à jour ses valeurs et donc l'affichage des classes de <span class="bulles rounded p-1 syntax">[ngClass]</span>.
+          </p>
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</mat-card>
+
